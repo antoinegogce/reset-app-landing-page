@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  /* RESET palette (strict) */
+  --reset-black: #000000;
+  --reset-white: #ffffff;
+  --reset-offwhite: #fafafa;
+  --reset-gray-100: #f0f0f0;
+  --reset-gray-400: #b0b0b0;
+  --reset-gray-700: #404040;
+  --reset-charcoal: #1a1a1a;
+  --reset-gray-accent: #666666;
+  --reset-green: #4caf50; /* déverrouiller */
+  --reset-red: #e53935; /* reverrouiller */
+
+  /* Shape */
+  --reset-radius-sm: 12px;
+  --reset-radius-md: 14px;
+  --reset-radius-lg: 16px;
+
+  /* Shadows (very subtle) */
+  --reset-shadow-1: 0 1px 0 rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
+  --reset-shadow-2: 0 1px 0 rgba(0, 0, 0, 0.06), 0 16px 40px rgba(0, 0, 0, 0.06);
+
+  /* Background gradients (almost imperceptible) */
+  --reset-grad-page: linear-gradient(180deg, var(--reset-offwhite) 0%, var(--reset-white) 55%, var(--reset-offwhite) 100%);
+  --reset-grad-section: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0) 100%);
+
+  color-scheme: light;
+}
+
+@theme inline {
+  /* Map to Tailwind tokens for convenience */
+  --color-background: var(--reset-offwhite);
+  --color-foreground: var(--reset-charcoal);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--reset-grad-page);
+  color: var(--reset-charcoal);
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    "Apple Color Emoji",
+    "Segoe UI Emoji";
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: rgba(76, 175, 80, 0.16);
+  color: var(--reset-black);
+}
+
+/* Calm focus ring */
+:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.25);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+/* Reduce motion for a calmer feel */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
