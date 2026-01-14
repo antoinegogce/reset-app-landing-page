@@ -10,20 +10,17 @@ import { SectionHeading } from "./components/SectionHeading";
 import { IconChart, IconLock, IconNfc, IconQr, IconUsers } from "./components/icons";
 
 export default function Home() {
-  const PLAY_STORE_URL =
-    "https://play.google.com/store/apps/details?id=TODO_REPLACE_ME";
+  // TODO: Décommenter quand l'app sera disponible sur le Play Store
+  // const PLAY_STORE_URL =
+  //   "https://play.google.com/store/apps/details?id=TODO_REPLACE_ME";
   const CONTACT_EMAIL = "contact@reset.app";
 
-  return (
-    <Landing PLAY_STORE_URL={PLAY_STORE_URL} CONTACT_EMAIL={CONTACT_EMAIL} />
-  );
+  return <Landing CONTACT_EMAIL={CONTACT_EMAIL} />;
 }
 
 function Landing({
-  PLAY_STORE_URL,
   CONTACT_EMAIL,
 }: {
-  PLAY_STORE_URL: string;
   CONTACT_EMAIL: string;
 }) {
   const nav = useMemo(
@@ -63,12 +60,14 @@ function Landing({
             </nav>
           </div>
           <div className="flex items-center gap-2">
-            <Button variant="secondary" size="md" href="#waitlist">
-              Rejoindre la liste
+            <Button variant="primary" size="md" href="#waitlist">
+              Rejoindre la liste d'attente
             </Button>
+            {/* TODO: Décommenter quand l'app sera disponible
             <Button variant="primary" size="md" href={PLAY_STORE_URL}>
               Télécharger
             </Button>
+            */}
           </div>
         </Container>
       </header>
@@ -98,10 +97,10 @@ function Landing({
                   </span>
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <Button href="#waitlist">Rejoindre la liste d'attente</Button>
+                  {/* TODO: Décommenter quand l'app sera disponible
                   <Button href={PLAY_STORE_URL}>Télécharger RESET</Button>
-                  <Button variant="secondary" href="#waitlist">
-                    Rejoindre la liste
-                  </Button>
+                  */}
                   <a
                     href={`mailto:${CONTACT_EMAIL}`}
                     className="text-[14px] font-medium text-[var(--reset-gray-accent)] underline decoration-[rgba(0,0,0,0.16)] underline-offset-4 hover:text-[var(--reset-black)]"
@@ -383,7 +382,9 @@ function Landing({
                       Télécharge RESET, rejoins la liste, ou écris-nous. Zéro spam. Réponse rapide.
                     </p>
                     <div className="mt-6 flex flex-wrap gap-3">
+                      {/* TODO: Décommenter quand l'app sera disponible
                       <Button href={PLAY_STORE_URL}>Télécharger</Button>
+                      */}
                       <Button variant="secondary" href={`mailto:${CONTACT_EMAIL}`}>
                         Contacter
                       </Button>
