@@ -11,6 +11,7 @@
   --reset-charcoal: #1a1a1a;
   --reset-gray-accent: #666666;
   --reset-green: #4caf50; /* déverrouiller */
+  --reset-green-dark: #43a047;
   --reset-red: #e53935; /* reverrouiller */
 
   /* Shape */
@@ -21,10 +22,15 @@
   /* Shadows (very subtle) */
   --reset-shadow-1: 0 1px 0 rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
   --reset-shadow-2: 0 1px 0 rgba(0, 0, 0, 0.06), 0 16px 40px rgba(0, 0, 0, 0.06);
+  --reset-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08), 0 20px 40px rgba(0, 0, 0, 0.08);
 
-  /* Background gradients (almost imperceptible) */
+  /* Background gradients */
   --reset-grad-page: linear-gradient(180deg, var(--reset-offwhite) 0%, var(--reset-white) 55%, var(--reset-offwhite) 100%);
   --reset-grad-section: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0) 100%);
+
+  /* Fonts */
+  --font-body: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
 
   color-scheme: light;
 }
@@ -35,45 +41,176 @@
   --color-foreground: var(--reset-charcoal);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   height: 100%;
 }
 
 body {
-  background: var(--reset-grad-page);
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(76, 175, 80, 0.06) 0%, transparent 50%),
+    var(--reset-grad-page);
   color: var(--reset-charcoal);
-  font-family:
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    "Segoe UI",
-    Roboto,
-    Helvetica,
-    Arial,
-    "Apple Color Emoji",
-    "Segoe UI Emoji";
+  font-family: var(--font-body);
   font-weight: 300;
   letter-spacing: -0.01em;
 }
 
 ::selection {
-  background: rgba(76, 175, 80, 0.16);
+  background: rgba(76, 175, 80, 0.2);
   color: var(--reset-black);
 }
 
 /* Calm focus ring */
 :focus-visible {
-  outline: 2px solid rgba(0, 0, 0, 0.25);
+  outline: 2px solid rgba(76, 175, 80, 0.5);
   outline-offset: 3px;
   border-radius: 10px;
 }
 
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation utility classes */
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.5s ease-out forwards;
+}
+
+/* Staggered animation delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+
+/* Initial state for animated elements */
+.animate-on-scroll {
+  opacity: 0;
+}
+
 /* Reduce motion for a calmer feel */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    scroll-behavior: auto !important;
-    transition: none !important;
-    animation: none !important;
+  html {
+    scroll-behavior: auto;
   }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== MOBILE MENU ===== */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 85vw);
+  background: var(--reset-white);
+  z-index: 51;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+/* Hamburger button animation */
+.hamburger-line {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--reset-black);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.open .hamburger-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open .hamburger-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }

@@ -1,17 +1,19 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
-type Variant = "primary" | "secondary" | "ghost";
+type Variant = "primary" | "accent" | "secondary" | "ghost";
 type Size = "md" | "lg";
 
 function classesFor(variant: Variant, size: Size) {
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-[var(--reset-radius-md)] px-5 font-medium transition-colors focus-visible:outline-none";
+    "inline-flex items-center justify-center gap-2 rounded-[var(--reset-radius-md)] px-5 font-medium transition-all duration-200 focus-visible:outline-none";
   const sizing = size === "lg" ? "h-12 text-[15px]" : "h-10 text-[14px]";
   const variants: Record<Variant, string> = {
     primary:
-      "bg-[var(--reset-black)] text-[var(--reset-white)] hover:bg-[#101010]",
+      "bg-[var(--reset-black)] text-[var(--reset-white)] hover:bg-[#101010] hover:scale-[1.02] active:scale-[0.98]",
+    accent:
+      "bg-[var(--reset-green)] text-[var(--reset-white)] hover:bg-[var(--reset-green-dark)] hover:scale-[1.02] active:scale-[0.98] shadow-[0_4px_14px_rgba(76,175,80,0.3)]",
     secondary:
-      "bg-transparent text-[var(--reset-charcoal)] border border-[var(--reset-gray-100)] hover:bg-[rgba(0,0,0,0.03)]",
+      "bg-transparent text-[var(--reset-charcoal)] border border-[var(--reset-gray-100)] hover:bg-[rgba(0,0,0,0.03)] hover:border-[var(--reset-gray-400)]",
     ghost:
       "bg-transparent text-[var(--reset-gray-700)] hover:bg-[rgba(0,0,0,0.03)]",
   };

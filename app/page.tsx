@@ -6,6 +6,7 @@ import { Button } from "./components/Button";
 import { Card } from "./components/Card";
 import { Container } from "./components/Container";
 import { Divider } from "./components/Divider";
+import { MobileNav } from "./components/MobileNav";
 import { SectionHeading } from "./components/SectionHeading";
 import { IconChart, IconLock, IconNfc, IconQr, IconUsers } from "./components/icons";
 
@@ -42,7 +43,7 @@ function Landing({
           <div className="flex items-center gap-6">
             <a
               href="#top"
-              className="text-[12px] font-medium tracking-[0.45em] text-[var(--reset-black)]"
+              className="font-[var(--font-mono)] text-[12px] font-medium tracking-[0.45em] text-[var(--reset-black)]"
               aria-label="RESET — accueil"
             >
               RESET
@@ -60,14 +61,19 @@ function Landing({
             </nav>
           </div>
           <div className="flex items-center gap-2">
-            <Button variant="primary" size="md" href="#waitlist">
-              Rejoindre la liste d'attente
+            <Button variant="primary" size="md" href="#waitlist" className="hidden sm:inline-flex">
+              Rejoindre la liste
             </Button>
             {/* TODO: Décommenter quand l'app sera disponible
             <Button variant="primary" size="md" href={PLAY_STORE_URL}>
               Télécharger
             </Button>
             */}
+            <MobileNav
+              items={nav}
+              ctaHref="#waitlist"
+              ctaLabel="Rejoindre la liste"
+            />
           </div>
         </Container>
       </header>
@@ -78,15 +84,15 @@ function Landing({
           <Container>
             <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-6">
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 animate-fade-in-up">
                   <Badge>Android</Badge>
                   <Badge>Smart Lock</Badge>
                   <Badge>NFC</Badge>
                 </div>
-                <h1 className="mt-5 text-[44px] font-[300] leading-[1.05] tracking-[-0.03em] text-[var(--reset-black)] sm:text-[58px]">
+                <h1 className="mt-5 text-[44px] font-[300] leading-[1.05] tracking-[-0.03em] text-[var(--reset-black)] sm:text-[58px] animate-fade-in-up delay-100">
                   Reprends le contrôle.
                 </h1>
-                <p className="mt-5 max-w-xl text-[18px] leading-8 text-[var(--reset-gray-700)]">
+                <p className="mt-5 max-w-xl text-[18px] leading-8 text-[var(--reset-gray-700)] animate-fade-in-up delay-200">
                   <span className="text-[var(--reset-black)]">
                     RESET bloque les apps qui te grignotent du temps
                   </span>{" "}
@@ -96,26 +102,33 @@ function Landing({
                     Moins de friction mentale. Plus de choix.
                   </span>
                 </p>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <Button href="#waitlist">Rejoindre la liste d'attente</Button>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center animate-fade-in-up delay-300">
+                  <Button href="#waitlist">Rejoindre la liste d&apos;attente</Button>
                   {/* TODO: Décommenter quand l'app sera disponible
                   <Button href={PLAY_STORE_URL}>Télécharger RESET</Button>
                   */}
+                  {/* TODO: Décommenter plus tard
                   <a
                     href={`mailto:${CONTACT_EMAIL}`}
                     className="text-[14px] font-medium text-[var(--reset-gray-accent)] underline decoration-[rgba(0,0,0,0.16)] underline-offset-4 hover:text-[var(--reset-black)]"
                   >
                     Contacter
                   </a>
+                  */}
                 </div>
                 <p className="mt-6 text-[13px] leading-6 text-[var(--reset-gray-accent)]">
                   Permissions expliquées en toute transparence (accès à l’usage, overlay, NFC).
                 </p>
               </div>
 
-              <div className="lg:col-span-6">
+              <div className="lg:col-span-6 animate-fade-in-up delay-400">
                 <ProductMock />
               </div>
+            </div>
+
+            {/* WAITLIST FORM */}
+            <div id="waitlist" className="mt-12 animate-fade-in-up delay-500">
+              <WaitlistForm />
             </div>
           </Container>
         </section>
@@ -365,33 +378,29 @@ function Landing({
           </Container>
         </section>
 
-        {/* WAITLIST + CTA */}
-        <section id="waitlist" className="pt-20 sm:pt-24">
+        {/* CTA */}
+        <section id="cta" className="pt-20 sm:pt-24">
           <Container>
             <Card className="overflow-hidden">
               <div className="bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0))] p-8 sm:p-10">
-                <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-                  <div className="lg:col-span-7">
-                    <div className="text-[12px] font-medium tracking-[0.18em] text-[var(--reset-gray-accent)]">
-                      CONVERSION
-                    </div>
-                    <h3 className="mt-2 text-[28px] font-[300] leading-[1.15] tracking-[-0.02em] text-[var(--reset-black)]">
-                      Un cadre premium, dans une app calme.
-                    </h3>
-                    <p className="mt-3 text-[15px] leading-7 text-[var(--reset-gray-700)]">
-                      Télécharge RESET, rejoins la liste, ou écris-nous. Zéro spam. Réponse rapide.
-                    </p>
-                    <div className="mt-6 flex flex-wrap gap-3">
-                      {/* TODO: Décommenter quand l'app sera disponible
-                      <Button href={PLAY_STORE_URL}>Télécharger</Button>
-                      */}
-                      <Button variant="secondary" href={`mailto:${CONTACT_EMAIL}`}>
-                        Contacter
-                      </Button>
-                    </div>
+                <div className="flex flex-col items-center text-center">
+                  <div className="text-[12px] font-medium tracking-[0.18em] text-[var(--reset-gray-accent)]">
+                    PRÊT À COMMENCER ?
                   </div>
-                  <div className="lg:col-span-5">
-                    <WaitlistForm />
+                  <h3 className="mt-2 text-[28px] font-[300] leading-[1.15] tracking-[-0.02em] text-[var(--reset-black)]">
+                    Un cadre premium, dans une app calme.
+                  </h3>
+                  <p className="mt-3 max-w-lg text-[15px] leading-7 text-[var(--reset-gray-700)]">
+                    Rejoins la liste d&apos;attente ou écris-nous. Zéro spam. Réponse rapide.
+                  </p>
+                  <div className="mt-6 flex flex-wrap justify-center gap-3">
+                    <Button href="#waitlist">Rejoindre la liste</Button>
+                    {/* TODO: Décommenter quand l'app sera disponible
+                    <Button href={PLAY_STORE_URL}>Télécharger</Button>
+                    */}
+                    <Button variant="secondary" href={`mailto:${CONTACT_EMAIL}`}>
+                      Contacter
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -438,7 +447,7 @@ function Landing({
         <Container className="py-10">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <div className="text-[12px] font-medium tracking-[0.45em] text-[var(--reset-black)]">
+              <div className="font-[var(--font-mono)] text-[12px] font-medium tracking-[0.45em] text-[var(--reset-black)]">
                 RESET
               </div>
               <div className="mt-2 text-[13px] text-[var(--reset-gray-accent)]">
@@ -652,7 +661,7 @@ function WaitlistForm() {
         </button>
         <a
           href="#faq"
-          className="h-11 shrink-0 rounded-[var(--reset-radius-md)] border border-[var(--reset-gray-100)] px-4 text-[14px] font-medium text-[var(--reset-gray-accent)] hover:bg-[rgba(0,0,0,0.03)] hover:text-[var(--reset-black)]"
+          className="flex h-11 shrink-0 items-center justify-center rounded-[var(--reset-radius-md)] border border-[var(--reset-gray-100)] px-4 text-[14px] font-medium text-[var(--reset-gray-accent)] hover:bg-[rgba(0,0,0,0.03)] hover:text-[var(--reset-black)]"
         >
           Lire la FAQ
         </a>
