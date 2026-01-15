@@ -604,8 +604,25 @@ function Metric({ label, value }: { label: string; value: string }) {
 
 function WaitlistForm() {
   const [email, setEmail] = useState("");
+  const [emailValid, setEmailValid] = useState<"empty" | "invalid" | "valid">("empty");
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
+
+  function validateEmail(value: string) {
+    if (value === "") {
+      setEmailValid("empty");
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      setEmailValid("invalid");
+    } else {
+      setEmailValid("valid");
+    }
+  }
+
+  function getEmailBorderClass() {
+    if (emailValid === "valid") return "border-[var(--reset-green)]";
+    if (emailValid === "invalid") return "border-[var(--reset-red)]";
+    return "border-[var(--reset-gray-100)]";
+  }
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -628,6 +645,7 @@ function WaitlistForm() {
 
       setStatus("ok");
       setEmail("");
+      setEmailValid("empty");
     } catch {
       setStatus("error");
       setError("Erreur réseau. Réessaie dans un instant.");
@@ -644,11 +662,23 @@ function WaitlistForm() {
         <span className="sr-only">Email</span>
         <input
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            validateEmail(e.target.value);
+            e.target.setCustomValidity("");
+          }}
+          onInvalid={(e) => {
+            const input = e.target as HTMLInputElement;
+            if (input.validity.valueMissing) {
+              input.setCustomValidity("Merci de renseigner ton email");
+            } else if (input.validity.typeMismatch) {
+              input.setCustomValidity("Merci d'entrer une adresse email valide");
+            }
+          }}
           type="email"
           required
           placeholder="ton@email.com"
-          className="h-11 w-full rounded-[var(--reset-radius-md)] border border-[var(--reset-gray-100)] bg-[var(--reset-offwhite)] px-4 text-[14px] text-[var(--reset-black)] placeholder:text-[var(--reset-gray-accent)]"
+          className={`h-11 w-full rounded-[var(--reset-radius-md)] border bg-[var(--reset-offwhite)] px-4 text-[14px] text-[var(--reset-black)] placeholder:text-[var(--reset-gray-accent)] transition-colors ${getEmailBorderClass()}`}
         />
       </label>
       <div className="mt-4 flex items-center gap-2">

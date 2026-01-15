@@ -67,9 +67,15 @@ body {
 
 /* Calm focus ring */
 :focus-visible {
-  outline: 2px solid rgba(76, 175, 80, 0.5);
+  outline: 2px solid rgba(0, 0, 0, 0.15);
   outline-offset: 3px;
   border-radius: 10px;
+}
+
+/* Remove outline for inputs - they use border instead */
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
 }
 
 /* ===== ANIMATIONS ===== */
