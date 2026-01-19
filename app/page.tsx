@@ -8,7 +8,7 @@ import { Container } from "./components/Container";
 import { Divider } from "./components/Divider";
 import { MobileNav } from "./components/MobileNav";
 import { SectionHeading } from "./components/SectionHeading";
-import { IconChart, IconLock, IconNfc, IconQr, IconUsers } from "./components/icons";
+import { IconChart, IconGooglePlay, IconLock, IconNfc, IconQr, IconUsers } from "./components/icons";
 
 export default function Home() {
   // TODO: Décommenter quand l'app sera disponible sur le Play Store
@@ -116,8 +116,12 @@ function Landing({
                   </a>
                   */}
                 </div>
-                <p className="mt-6 text-[13px] leading-6 text-[var(--reset-gray-accent)]">
-                  Permissions expliquées en toute transparence (accès à l’usage, overlay, NFC).
+                <div className="mt-6 flex items-center gap-2 text-[13px] leading-6 text-[var(--reset-gray-accent)]">
+                  <IconGooglePlay className="h-5 w-5 text-[var(--reset-gray-700)]" />
+                  <span>Disponible uniquement sur <span className="text-[var(--reset-black)] font-medium">Android</span> — iOS non prévu.</span>
+                </div>
+                <p className="mt-3 text-[13px] leading-6 text-[var(--reset-gray-accent)]">
+                  Permissions expliquées en toute transparence (accès à l&apos;usage, overlay, NFC).
                 </p>
               </div>
 
@@ -188,7 +192,7 @@ function Landing({
                       Motivation sociale, sans bruit
                     </div>
                     <p className="mt-2 text-[14px] leading-7 text-[var(--reset-gray-700)]">
-                      Profil @resetTag, QR, contacts, demandes d’amis, duels.
+                      Profil @resetTag, QR, contacts, demandes d&apos;amis, duels.
                     </p>
                   </div>
                 </div>
@@ -214,12 +218,12 @@ function Landing({
               <Step
                 n="02"
                 title="Déverrouille si tu le décides"
-                text="Quand une app est bloquée, l’écran “Application bloquée” apparaît. Pour une exception, démarre une session de déverrouillage via scan NFC."
+                text="Quand une app est bloquée, l'écran « Application bloquée » apparaît. Pour une exception, démarre une session de déverrouillage via scan NFC."
               />
               <Step
                 n="03"
                 title="Observe et tiens le cap"
-                text="Suis tes sessions, tes minutes déverrouillées et les tendances 7/30 jours. Besoin d’un cadre? QR, contacts et duels."
+                text="Suis tes sessions, tes minutes déverrouillées et les tendances 7/30 jours. Besoin d'un cadre? QR, contacts et duels."
               />
             </div>
           </Container>
@@ -230,7 +234,7 @@ function Landing({
           <Container>
             <SectionHeading
               eyebrow="FONCTIONNALITÉS"
-              title="Tout ce qu’il faut. Rien de trop."
+              title="Tout ce qu'il faut. Rien de trop."
               description="Chaque pièce du produit sert un objectif: rendre le choix plus simple."
             />
             <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -245,8 +249,8 @@ function Landing({
                 icon={<IconNfc />}
               />
               <Feature
-                title="Écran “Application bloquée” apaisant"
-                detail="Quand ça bloque, c’est clair. Et tu peux ouvrir des apps autorisées."
+                title="Écran « Application bloquée » apaisant"
+                detail="Quand ça bloque, c'est clair. Et tu peux ouvrir des apps autorisées."
                 icon={<IconLock />}
               />
               <Feature
@@ -261,7 +265,7 @@ function Landing({
               />
               <Feature
                 title="Social = motivation, pas distraction"
-                detail="Profil @resetTag, QR, contacts, demandes d’amis, duels."
+                detail="Profil @resetTag, QR, contacts, demandes d'amis, duels."
                 icon={<IconQr />}
               />
             </div>
@@ -281,7 +285,7 @@ function Landing({
                 <div className="mt-7 flex flex-wrap gap-2">
                   <Badge>QR</Badge>
                   <Badge>Contacts</Badge>
-                  <Badge>Demandes d’amis</Badge>
+                  <Badge>Demandes d&apos;amis</Badge>
                   <Badge>Duels</Badge>
                 </div>
                 <p className="mt-7 text-[16px] leading-7 text-[var(--reset-gray-700)]">
@@ -298,7 +302,7 @@ function Landing({
                       QR rapide
                     </div>
                     <p className="mt-2 text-[13px] leading-6 text-[var(--reset-gray-700)]">
-                      Un scan. Un lien. C’est tout.
+                      Un scan. Un lien. C&apos;est tout.
                     </p>
                   </Card>
                   <Card className="p-6">
@@ -339,12 +343,12 @@ function Landing({
                   Confidentialité, sans promesses marketing
                 </div>
                 <p className="mt-3 text-[14px] leading-7 text-[var(--reset-gray-700)]">
-                  RESET est pensé pour rester calme: pas d’intrusion inutile. Les données visibles
-                  dans l’app (règles, sessions, stats) servent d’abord à te donner de la clarté.
+                  RESET est pensé pour rester calme: pas d&apos;intrusion inutile. Les données visibles
+                  dans l&apos;app (règles, sessions, stats) servent d&apos;abord à te donner de la clarté.
                 </p>
                 <p className="mt-3 text-[14px] leading-7 text-[var(--reset-gray-700)]">
                   Les fonctions sociales (profil/contacts/duels) nécessitent certaines informations
-                  pour fonctionner — et elles sont présentées clairement dans l’app.
+                  pour fonctionner — et elles sont présentées clairement dans l&apos;app.
                 </p>
               </Card>
               <Card className="p-7">
@@ -354,15 +358,15 @@ function Landing({
                 <ul className="mt-4 space-y-3 text-[14px] leading-7 text-[var(--reset-gray-700)]">
                   <li>
                     <span className="text-[var(--reset-black)]">
-                      Statistiques d’utilisation
+                      Statistiques d&apos;utilisation
                     </span>
                     : appliquer Smart Lock et afficher tes stats.
                   </li>
                   <li>
                     <span className="text-[var(--reset-black)]">
-                      Afficher par-dessus d’autres apps (overlay)
+                      Afficher par-dessus d&apos;autres apps (overlay)
                     </span>
-                    : afficher “Application bloquée” au bon moment.
+                    : afficher &quot;Application bloquée&quot; au bon moment.
                   </li>
                   <li>
                     <span className="text-[var(--reset-black)]">NFC</span>: démarrer une session de
@@ -419,7 +423,7 @@ function Landing({
             <div className="mt-10 grid gap-4 lg:grid-cols-2">
               <Faq
                 q="Est-ce que je peux contourner le blocage ?"
-                a="RESET est conçu pour rendre le contournement moins automatique et plus conscient (écran de blocage + déverrouillage en session). L’objectif: te remettre face à un choix, pas te piéger."
+                a="RESET est conçu pour rendre le contournement moins automatique et plus conscient (écran de blocage + déverrouillage en session). L'objectif: te remettre face à un choix, pas te piéger."
               />
               <Faq
                 q="Le NFC est-il obligatoire ?"
@@ -427,7 +431,7 @@ function Landing({
               />
               <Faq
                 q="Quelles apps puis-je autoriser ?"
-                a="Celles que tu veux garder accessibles même quand le reste est bloqué: musique, navigation, messagerie essentielle… Tu définis ta liste d’apps autorisées."
+                a="Celles que tu veux garder accessibles même quand le reste est bloqué: musique, navigation, messagerie essentielle… Tu définis ta liste d'apps autorisées."
               />
               <Faq
                 q="Quelles données sont stockées ?"
@@ -435,9 +439,12 @@ function Landing({
               />
               <Faq
                 q="Ça marche sans internet ?"
-                a="Les fonctions de blocage, NFC et stats peuvent fonctionner localement. Les fonctions sociales (contacts/demandes/duels) peuvent nécessiter une connexion selon l’usage."
+                a="Les fonctions de blocage, NFC et stats peuvent fonctionner localement. Les fonctions sociales (contacts/demandes/duels) peuvent nécessiter une connexion selon l'usage."
               />
-              <Faq q="Android requis ?" a="Oui. RESET est une app Android." />
+              <Faq 
+                q="Pourquoi Android uniquement ?" 
+                a="RESET utilise des fonctionnalités spécifiques à Android (accès aux statistiques d'usage, overlay, NFC). iOS ne permet pas ce niveau d'intégration système. Aucune version iOS n'est prévue."
+              />
             </div>
           </Container>
         </section>
@@ -639,7 +646,7 @@ function WaitlistForm() {
 
       if (!res.ok || !data.ok) {
         setStatus("error");
-        setError(data.error ?? "Impossible d’enregistrer l’email.");
+        setError(data.error ?? "Impossible d'enregistrer l'email.");
         return;
       }
 

@@ -130,4 +130,38 @@ export function IconUsers(props: IconProps) {
   );
 }
 
+export function IconGooglePlay(props: IconProps) {
+  const { title = "Google Play", ...rest } = props;
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      fill="currentColor"
+      aria-hidden={title ? undefined : true}
+      {...rest}
+    >
+      <Title title={title} />
+      <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 9.99l-2.302 2.302-8.634-8.634z" />
+    </svg>
+  );
+}
+
+export function IconAndroid(props: IconProps) {
+  const { title = "Android", ...rest } = props;
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      fill="currentColor"
+      aria-hidden={title ? undefined : true}
+      {...rest}
+    >
+      <Title title={title} />
+      <path d="M17.523 15.341c-.5 0-.91-.41-.91-.91s.41-.91.91-.91.91.41.91.91-.41.91-.91.91m-11.046 0c-.5 0-.91-.41-.91-.91s.41-.91.91-.91.91.41.91.91-.41.91-.91.91m11.4-6.02l1.97-3.41c.11-.19.04-.43-.14-.54-.19-.11-.43-.04-.54.14l-2 3.46C15.53 8.21 13.84 7.81 12 7.81s-3.53.4-5.17 1.13l-2-3.46c-.11-.19-.35-.25-.54-.14-.19.11-.25.35-.14.54l1.97 3.41C3.22 11.04 1.5 14.04 1.5 17.5h21c0-3.46-1.72-6.46-4.67-8.18z" />
+    </svg>
+  );
+}
+
 

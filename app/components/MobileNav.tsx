@@ -44,7 +44,7 @@ export function MobileNav({
       {/* Hamburger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`hamburger relative z-[52] flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-[var(--reset-radius-md)] border border-[var(--reset-gray-100)] bg-[var(--reset-white)] md:hidden ${isOpen ? "open" : ""}`}
+        className={`hamburger relative z-[10000] flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-[var(--reset-radius-md)] border border-[var(--reset-gray-100)] bg-[var(--reset-white)] md:hidden ${isOpen ? "open" : ""}`}
         aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
         aria-expanded={isOpen}
       >
@@ -90,12 +90,8 @@ export function MobileNav({
           {/* Nav Links */}
           <div className="flex-1 overflow-y-auto px-6 py-6">
             <ul className="space-y-1">
-              {items.map((item, index) => (
-                <li
-                  key={item.href}
-                  className="animate-slide-in-right opacity-0"
-                  style={{ animationDelay: `${index * 50 + 100}ms`, animationFillMode: "forwards" }}
-                >
+              {items.map((item) => (
+                <li key={item.href}>
                   <a
                     href={item.href}
                     onClick={() => setIsOpen(false)}
