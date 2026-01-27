@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 function isValidEmail(input: unknown): input is string {
   if (typeof input !== "string") return false;
   const email = input.trim();
@@ -14,6 +12,7 @@ function isValidEmail(input: unknown): input is string {
 export async function POST(req: Request) {
   try {
     const body = (await req.json()) as { email?: unknown };
+    
     if (!isValidEmail(body.email)) {
       return NextResponse.json(
         { ok: false, error: "Email invalide." },
@@ -22,6 +21,7 @@ export async function POST(req: Request) {
     }
 
     // Add email to Resend Audience
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const { error } = await resend.contacts.create({
       email: body.email,
       audienceId: process.env.RESEND_AUDIENCE_ID!,
