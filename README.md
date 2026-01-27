@@ -1,5 +1,21 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Environment Variables
+
+Create a `.env.local` file with the following variables:
+
+```bash
+# Resend (email service)
+RESEND_API_KEY=re_xxxxx
+RESEND_AUDIENCE_ID=xxxxx
+
+# Upstash Redis (rate limiting)
+UPSTASH_REDIS_REST_URL=https://xxxxx.upstash.io
+UPSTASH_REDIS_REST_TOKEN=xxxxx
+```
+
+You can get Upstash credentials for free at [console.upstash.com](https://console.upstash.com/).
+
 ## Getting Started
 
 First, run the development server:

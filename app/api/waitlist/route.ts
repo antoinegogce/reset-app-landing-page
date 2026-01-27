@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { Ratelimit } from "@upstash/ratelimit";
+import { Redis } from "@upstash/redis";
 
 function isValidEmail(input: unknown): input is string {
   if (typeof input !== "string") return false;
@@ -9,9 +11,37 @@ function isValidEmail(input: unknown): input is string {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+// Rate limiter: 5 requests per minute per IP
+const ratelimit = new Ratelimit({
+  redis: Redis.fromEnv(),
+  limiter: Ratelimit.slidingWindow(5, "1 m"),
+  analytics: true,
+  prefix: "waitlist",
+});
+
 export async function POST(req: Request) {
   try {
-    const body = (await req.json()) as { email?: unknown };
+    // Rate limiting by IP
+    const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() 
+      ?? req.headers.get("x-real-ip") 
+      ?? "anonymous";
+    
+    const { success, remaining } = await ratelimit.limit(ip);
+    
+    if (!success) {
+      return NextResponse.json(
+        { ok: false, error: "Trop de requêtes. Réessaie dans une minute." },
+        { status: 429, headers: { "X-RateLimit-Remaining": String(remaining) } },
+      );
+    }
+
+    const body = (await req.json()) as { email?: unknown; website?: unknown };
+    
+    // Honeypot check - if filled, it's a bot
+    if (body.website && typeof body.website === "string" && body.website.length > 0) {
+      // Silently accept to not reveal detection
+      return NextResponse.json({ ok: true }, { status: 200 });
+    }
     
     if (!isValidEmail(body.email)) {
       return NextResponse.json(

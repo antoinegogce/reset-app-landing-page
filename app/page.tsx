@@ -614,6 +614,8 @@ function WaitlistForm() {
   const [emailValid, setEmailValid] = useState<"empty" | "invalid" | "valid">("empty");
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
+  // Honeypot field - bots fill this, humans don't see it
+  const [website, setWebsite] = useState("");
 
   function validateEmail(value: string) {
     if (value === "") {
@@ -640,7 +642,7 @@ function WaitlistForm() {
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, website }),
       });
       const data = (await res.json()) as { ok: boolean; error?: string };
 
@@ -661,6 +663,17 @@ function WaitlistForm() {
 
   return (
     <form onSubmit={onSubmit} className="rounded-[var(--reset-radius-lg)] border border-[var(--reset-gray-100)] bg-[var(--reset-white)] p-6">
+      {/* Honeypot field - hidden from humans, bots fill it */}
+      <input
+        type="text"
+        name="website"
+        value={website}
+        onChange={(e) => setWebsite(e.target.value)}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute left-[-9999px] h-0 w-0 opacity-0"
+      />
       <div className="text-[15px] font-medium text-[var(--reset-black)]">Rejoindre la liste</div>
       <p className="mt-2 text-[13px] leading-6 text-[var(--reset-gray-700)]">
         Un email. Une seule utilité: te prévenir. Zéro spam.
