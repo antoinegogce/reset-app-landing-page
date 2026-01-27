@@ -698,7 +698,7 @@ function WaitlistForm() {
           type="email"
           required
           placeholder="ton@email.com"
-          className={`h-11 w-full rounded-[var(--reset-radius-md)] border bg-[var(--reset-offwhite)] px-4 text-[14px] text-[var(--reset-black)] placeholder:text-[var(--reset-gray-accent)] transition-colors ${getEmailBorderClass()}`}
+          className={`h-11 w-full rounded-[var(--reset-radius-md)] border bg-white px-4 text-[14px] text-[var(--reset-black)] placeholder:text-[var(--reset-gray-accent)] shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-[var(--reset-black)] focus:ring-offset-1 ${getEmailBorderClass()}`}
         />
       </label>
       <div className="mt-4 flex items-center gap-2">
