@@ -118,7 +118,7 @@ function Landing({
                 </div>
                 <div className="mt-6 flex items-center gap-2 text-[13px] leading-6 text-[var(--reset-gray-accent)]">
                   <IconGooglePlay className="h-5 w-5 text-[var(--reset-gray-700)]" />
-                  <span>Disponible uniquement sur <span className="text-[var(--reset-black)] font-medium">Android</span> — iOS non prévu.</span>
+                  <span>Disponible uniquement sur <span className="text-[var(--reset-black)] font-medium">Android</span></span>
                 </div>
                 <p className="mt-3 text-[13px] leading-6 text-[var(--reset-gray-accent)]">
                   Permissions expliquées en toute transparence (accès à l&apos;usage, overlay, NFC).
