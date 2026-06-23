@@ -8,7 +8,7 @@ import { Container } from "./components/Container";
 import { Divider } from "./components/Divider";
 import { MobileNav } from "./components/MobileNav";
 import { SectionHeading } from "./components/SectionHeading";
-import { IconChart, IconGooglePlay, IconLock, IconNfc, IconQr, IconUsers } from "./components/icons";
+import { IconChart, IconGooglePlay, IconLock, IconLogo, IconNfc, IconQr, IconUsers } from "./components/icons";
 
 export default function Home() {
   // TODO: Décommenter quand l'app sera disponible sur le Play Store
@@ -43,10 +43,11 @@ function Landing({
           <div className="flex items-center gap-6">
             <a
               href="#top"
-              className="font-[var(--font-mono)] text-[12px] font-medium tracking-[0.45em] text-[var(--reset-black)]"
+              className="flex items-center gap-2.5 font-[var(--font-mono)] text-[12px] font-medium tracking-[0.45em] text-[var(--reset-black)]"
               aria-label="RESET — accueil"
             >
-              RESET
+              <IconLogo className="h-4.5 w-auto" />
+              <span>RESET</span>
             </a>
             <nav className="hidden items-center gap-5 text-[13px] text-[var(--reset-gray-700)] md:flex">
               {nav.map((item) => (
@@ -454,8 +455,9 @@ function Landing({
         <Container className="py-10">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <div className="font-[var(--font-mono)] text-[12px] font-medium tracking-[0.45em] text-[var(--reset-black)]">
-                RESET
+              <div className="flex items-center gap-2.5 font-[var(--font-mono)] text-[12px] font-medium tracking-[0.45em] text-[var(--reset-black)]">
+                <IconLogo className="h-4.5 w-auto" />
+                <span>RESET</span>
               </div>
               <div className="mt-2 text-[13px] text-[var(--reset-gray-accent)]">
                 Reprends le contrôle.

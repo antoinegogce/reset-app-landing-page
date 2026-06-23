@@ -1,15 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  /* RESET palette (strict) */
-  --reset-black: #000000;
+  /* RESET core palette (strict Encre & Crème guidelines) */
+  --reset-encre: #232E3C;
+  --reset-creme: #F1ECE3;
+  --reset-accent: #2D6BA8; /* deep blue */
+
+  /* RESET palette mappings for backward compatibility / usage */
+  --reset-black: var(--reset-encre);
   --reset-white: #ffffff;
-  --reset-offwhite: #fafafa;
-  --reset-gray-100: #f0f0f0;
-  --reset-gray-400: #b0b0b0;
-  --reset-gray-700: #404040;
-  --reset-charcoal: #1a1a1a;
-  --reset-gray-accent: #666666;
+  --reset-offwhite: var(--reset-creme);
+  
+  /* Semi-transparent encre colors for hierarchy without introducing out-of-palette grays */
+  --reset-gray-100: rgba(35, 46, 60, 0.08); /* Borders & Dividers */
+  --reset-gray-400: rgba(35, 46, 60, 0.3);  /* Borders hover */
+  --reset-gray-700: rgba(35, 46, 60, 0.75); /* Secondary copy */
+  --reset-charcoal: var(--reset-encre);
+  --reset-gray-accent: rgba(35, 46, 60, 0.55); /* Captions, muted */
+  
   --reset-green: #4caf50; /* déverrouiller */
   --reset-green-dark: #43a047;
   --reset-red: #e53935; /* reverrouiller */
@@ -19,17 +27,17 @@
   --reset-radius-md: 14px;
   --reset-radius-lg: 16px;
 
-  /* Shadows (very subtle) */
-  --reset-shadow-1: 0 1px 0 rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
-  --reset-shadow-2: 0 1px 0 rgba(0, 0, 0, 0.06), 0 16px 40px rgba(0, 0, 0, 0.06);
-  --reset-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08), 0 20px 40px rgba(0, 0, 0, 0.08);
+  /* Shadows (very subtle, tinted with Encre for organic look) */
+  --reset-shadow-1: 0 1px 0 rgba(35, 46, 60, 0.02), 0 8px 24px rgba(35, 46, 60, 0.03);
+  --reset-shadow-2: 0 1px 0 rgba(35, 46, 60, 0.04), 0 16px 40px rgba(35, 46, 60, 0.04);
+  --reset-shadow-hover: 0 4px 12px rgba(35, 46, 60, 0.06), 0 20px 40px rgba(35, 46, 60, 0.06);
 
   /* Background gradients */
-  --reset-grad-page: linear-gradient(180deg, var(--reset-offwhite) 0%, var(--reset-white) 55%, var(--reset-offwhite) 100%);
-  --reset-grad-section: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0) 100%);
+  --reset-grad-page: linear-gradient(180deg, var(--reset-creme) 0%, #faf8f5 55%, var(--reset-creme) 100%);
+  --reset-grad-section: linear-gradient(180deg, rgba(35, 46, 60, 0.02) 0%, rgba(35, 46, 60, 0) 100%);
 
   /* Fonts */
-  --font-body: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-space-mono), ui-monospace, monospace;
 
   color-scheme: light;
@@ -52,7 +60,7 @@ body {
 
 body {
   background: 
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(76, 175, 80, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(45, 107, 168, 0.08) 0%, transparent 50%),
     var(--reset-grad-page);
   color: var(--reset-charcoal);
   font-family: var(--font-body);
@@ -61,7 +69,7 @@ body {
 }
 
 ::selection {
-  background: rgba(76, 175, 80, 0.2);
+  background: rgba(45, 107, 168, 0.15);
   color: var(--reset-black);
 }
 

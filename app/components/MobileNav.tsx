@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { IconLogo } from "./icons";
 
 interface NavItem {
   href: string;
@@ -68,8 +69,9 @@ export function MobileNav({
         <div className="flex h-full flex-col">
           {/* Header */}
           <div className="flex h-16 items-center justify-between border-b border-[var(--reset-gray-100)] px-6">
-            <span className="font-[var(--font-mono)] text-[12px] font-medium tracking-[0.45em] text-[var(--reset-black)]">
-              RESET
+            <span className="flex items-center gap-2.5 font-[var(--font-mono)] text-[12px] font-medium tracking-[0.45em] text-[var(--reset-black)]">
+              <IconLogo className="h-4.5 w-auto" />
+              <span>RESET</span>
             </span>
             <button
               onClick={() => setIsOpen(false)}

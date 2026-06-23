@@ -164,4 +164,32 @@ export function IconAndroid(props: IconProps) {
   );
 }
 
+export function IconLogo(props: IconProps) {
+  const { title = "RESET", ...rest } = props;
+  return (
+    <svg
+      viewBox="0 0 40 22"
+      width="40"
+      height="22"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden={title ? undefined : true}
+      {...rest}
+    >
+      <Title title={title} />
+      <rect
+        x="1.5"
+        y="1.5"
+        width="37"
+        height="19"
+        rx="9.5"
+      />
+      <circle cx="11" cy="11" r="4.5" fill="currentColor" />
+    </svg>
+  );
+}
+
 
