@@ -1,0 +1,10 @@
+# Base domain configuration
+# Replace yourdomain.com with your actual domain
+yourdomain.com {
+    reverse_proxy app:3000
+}
+
+# Optional Uptime Kuma configuration (uncomment if Uptime Kuma service is enabled)
+# status.yourdomain.com {
+#     reverse_proxy uptime-kuma:3001
+# }
