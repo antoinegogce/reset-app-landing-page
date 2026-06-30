@@ -9,13 +9,14 @@ function classesFor(variant: Variant, size: Size) {
   const sizing = size === "lg" ? "h-12 text-[15px]" : "h-10 text-[14px]";
   const variants: Record<Variant, string> = {
     primary:
-      "bg-[var(--reset-encre)] text-[var(--reset-creme)] hover:bg-[#1d2733] hover:scale-[1.02] active:scale-[0.98] shadow-sm",
+      "bg-[var(--reset-creme)] text-[var(--reset-encre)] hover:bg-[#e8e3da] hover:scale-[1.02] active:scale-[0.98] shadow-sm",
+    /* Mobile nav CTA uses primary in dark mode — overridden inline */
     accent:
       "bg-[var(--reset-accent)] text-[var(--reset-creme)] hover:bg-[#25588a] hover:scale-[1.02] active:scale-[0.98] shadow-[0_4px_14px_rgba(45,107,168,0.25)]",
     secondary:
-      "bg-transparent text-[var(--reset-charcoal)] border border-[var(--reset-gray-100)] hover:bg-[rgba(35,46,60,0.04)] hover:border-[var(--reset-gray-400)]",
+      "bg-transparent text-[var(--reset-charcoal)] border border-[var(--reset-gray-100)] hover:bg-[rgba(241,236,227,0.06)] hover:border-[var(--reset-gray-400)]",
     ghost:
-      "bg-transparent text-[var(--reset-gray-700)] hover:bg-[rgba(35,46,60,0.04)]",
+      "bg-transparent text-[var(--reset-gray-700)] hover:bg-[rgba(241,236,227,0.06)]",
   };
   return `${base} ${sizing} ${variants[variant]}`;
 }

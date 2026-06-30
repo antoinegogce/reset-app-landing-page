@@ -6,17 +6,17 @@
   --reset-creme: #F1ECE3;
   --reset-accent: #2D6BA8; /* deep blue */
 
-  /* RESET palette mappings for backward compatibility / usage */
-  --reset-black: var(--reset-encre);
-  --reset-white: #ffffff;
-  --reset-offwhite: var(--reset-creme);
+  /* RESET palette mappings — DARK MODE: encre dominant */
+  --reset-black: var(--reset-creme);         /* text → crème sur fond sombre */
+  --reset-white: #2a3647;                    /* surfaces → légèrement plus clair que l'encre */
+  --reset-offwhite: var(--reset-encre);      /* off-white → encre */
+  --reset-charcoal: var(--reset-creme);      /* charcoal → crème */
   
-  /* Semi-transparent encre colors for hierarchy without introducing out-of-palette grays */
-  --reset-gray-100: rgba(35, 46, 60, 0.08); /* Borders & Dividers */
-  --reset-gray-400: rgba(35, 46, 60, 0.3);  /* Borders hover */
-  --reset-gray-700: rgba(35, 46, 60, 0.75); /* Secondary copy */
-  --reset-charcoal: var(--reset-encre);
-  --reset-gray-accent: rgba(35, 46, 60, 0.55); /* Captions, muted */
+  /* Semi-transparent creme colors for hierarchy on dark background */
+  --reset-gray-100: rgba(241, 236, 227, 0.08);  /* Borders & Dividers */
+  --reset-gray-400: rgba(241, 236, 227, 0.3);   /* Borders hover */
+  --reset-gray-700: rgba(241, 236, 227, 0.75);  /* Secondary copy */
+  --reset-gray-accent: rgba(241, 236, 227, 0.55); /* Captions, muted */
   
   --reset-green: #4caf50; /* déverrouiller */
   --reset-green-dark: #43a047;
@@ -27,20 +27,20 @@
   --reset-radius-md: 14px;
   --reset-radius-lg: 16px;
 
-  /* Shadows (very subtle, tinted with Encre for organic look) */
-  --reset-shadow-1: 0 1px 0 rgba(35, 46, 60, 0.02), 0 8px 24px rgba(35, 46, 60, 0.03);
-  --reset-shadow-2: 0 1px 0 rgba(35, 46, 60, 0.04), 0 16px 40px rgba(35, 46, 60, 0.04);
-  --reset-shadow-hover: 0 4px 12px rgba(35, 46, 60, 0.06), 0 20px 40px rgba(35, 46, 60, 0.06);
+  /* Shadows (deeper on dark, tinted black) */
+  --reset-shadow-1: 0 1px 0 rgba(0, 0, 0, 0.15), 0 8px 24px rgba(0, 0, 0, 0.2);
+  --reset-shadow-2: 0 1px 0 rgba(0, 0, 0, 0.2), 0 16px 40px rgba(0, 0, 0, 0.25);
+  --reset-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.25), 0 20px 40px rgba(0, 0, 0, 0.3);
 
-  /* Background gradients */
-  --reset-grad-page: linear-gradient(180deg, var(--reset-creme) 0%, #faf8f5 55%, var(--reset-creme) 100%);
-  --reset-grad-section: linear-gradient(180deg, rgba(35, 46, 60, 0.02) 0%, rgba(35, 46, 60, 0) 100%);
+  /* Background gradients — encre dominant */
+  --reset-grad-page: linear-gradient(180deg, var(--reset-encre) 0%, #1b2330 55%, var(--reset-encre) 100%);
+  --reset-grad-section: linear-gradient(180deg, rgba(241, 236, 227, 0.02) 0%, rgba(241, 236, 227, 0) 100%);
 
   /* Fonts */
   --font-body: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-space-mono), ui-monospace, monospace;
 
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -60,7 +60,7 @@ body {
 
 body {
   background: 
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(45, 107, 168, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(45, 107, 168, 0.12) 0%, transparent 50%),
     var(--reset-grad-page);
   color: var(--reset-charcoal);
   font-family: var(--font-body);
@@ -69,13 +69,13 @@ body {
 }
 
 ::selection {
-  background: rgba(45, 107, 168, 0.15);
-  color: var(--reset-black);
+  background: rgba(45, 107, 168, 0.25);
+  color: var(--reset-creme);
 }
 
 /* Calm focus ring */
 :focus-visible {
-  outline: 2px solid rgba(0, 0, 0, 0.15);
+  outline: 2px solid rgba(241, 236, 227, 0.3);
   outline-offset: 3px;
   border-radius: 10px;
 }

@@ -11,7 +11,7 @@ export function Badge({
 }) {
   const tones: Record<typeof tone, string> = {
     neutral:
-      "bg-[var(--reset-gray-100)] text-[var(--reset-gray-accent)] border border-[rgba(0,0,0,0.04)]",
+      "bg-[var(--reset-gray-100)] text-[var(--reset-gray-accent)] border border-[rgba(241,236,227,0.06)]",
     success:
       "bg-[rgba(76,175,80,0.10)] text-[var(--reset-green)] border border-[rgba(76,175,80,0.18)]",
     danger:

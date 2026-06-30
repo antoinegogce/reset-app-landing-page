@@ -38,7 +38,7 @@ function Landing({
 
   return (
     <div className="min-h-screen">
-      <header className="sticky top-0 z-40 border-b border-[rgba(0,0,0,0.06)] bg-[rgba(250,250,250,0.72)] backdrop-blur">
+      <header className="sticky top-0 z-40 border-b border-[rgba(241,236,227,0.06)] bg-[rgba(35,46,60,0.85)] backdrop-blur">
         <Container className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-6">
             <a
@@ -111,7 +111,7 @@ function Landing({
                   {/* TODO: Décommenter plus tard
                   <a
                     href={`mailto:${CONTACT_EMAIL}`}
-                    className="text-[14px] font-medium text-[var(--reset-gray-accent)] underline decoration-[rgba(0,0,0,0.16)] underline-offset-4 hover:text-[var(--reset-black)]"
+                    className="text-[14px] font-medium text-[var(--reset-gray-accent)] underline decoration-[rgba(241,236,227,0.16)] underline-offset-4 hover:text-[var(--reset-black)]"
                   >
                     Contacter
                   </a>
@@ -387,7 +387,7 @@ function Landing({
         <section id="cta" className="pt-20 sm:pt-24">
           <Container>
             <Card className="overflow-hidden">
-              <div className="bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0))] p-8 sm:p-10">
+              <div className="bg-[linear-gradient(180deg,rgba(241,236,227,0.04),rgba(241,236,227,0))] p-8 sm:p-10">
                 <div className="flex flex-col items-center text-center">
                   <div className="text-[12px] font-medium tracking-[0.18em] text-[var(--reset-gray-accent)]">
                     PRÊT À COMMENCER ?
@@ -451,7 +451,7 @@ function Landing({
         </section>
       </main>
 
-      <footer className="border-t border-[rgba(0,0,0,0.06)] bg-[rgba(250,250,250,0.6)]">
+      <footer className="border-t border-[rgba(241,236,227,0.06)] bg-[rgba(35,46,60,0.7)]">
         <Container className="py-10">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <div>
@@ -569,8 +569,8 @@ function ProductMock() {
           <div className="mt-1 text-[12px] text-[var(--reset-gray-accent)]">
             10 minutes — volontaire, temporaire
           </div>
-          <div className="mt-4 h-2 w-full rounded-full bg-[rgba(0,0,0,0.08)]">
-            <div className="h-2 w-[62%] rounded-full bg-[rgba(0,0,0,0.22)]" />
+          <div className="mt-4 h-2 w-full rounded-full bg-[rgba(241,236,227,0.10)]">
+            <div className="h-2 w-[62%] rounded-full bg-[rgba(241,236,227,0.25)]" />
           </div>
         </div>
         <div className="mt-5 text-[12px] text-[var(--reset-gray-accent)]">
@@ -592,7 +592,7 @@ function ProductMock() {
           {["30", "44", "26", "52", "38", "60", "40"].map((h, i) => (
             <div
               key={i}
-              className="w-full rounded-[10px] bg-[rgba(0,0,0,0.16)]"
+              className="w-full rounded-[10px] bg-[rgba(241,236,227,0.18)]"
               style={{ height: `${h}px` }}
             />
           ))}
@@ -707,13 +707,13 @@ function WaitlistForm() {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="h-11 flex-1 rounded-[var(--reset-radius-md)] bg-[var(--reset-black)] text-[14px] font-medium text-[var(--reset-white)] transition-colors hover:bg-[#101010] disabled:opacity-60"
+          className="h-11 flex-1 rounded-[var(--reset-radius-md)] bg-[var(--reset-black)] text-[14px] font-medium text-[var(--reset-white)] transition-colors hover:bg-[#e8e3da] disabled:opacity-60"
         >
           {status === "loading" ? "Envoi…" : "Rejoindre"}
         </button>
         <a
           href="#faq"
-          className="flex h-11 shrink-0 items-center justify-center rounded-[var(--reset-radius-md)] border border-[var(--reset-gray-100)] px-4 text-[14px] font-medium text-[var(--reset-gray-accent)] hover:bg-[rgba(0,0,0,0.03)] hover:text-[var(--reset-black)]"
+          className="flex h-11 shrink-0 items-center justify-center rounded-[var(--reset-radius-md)] border border-[var(--reset-gray-100)] px-4 text-[14px] font-medium text-[var(--reset-gray-accent)] hover:bg-[rgba(241,236,227,0.06)] hover:text-[var(--reset-black)]"
         >
           Lire la FAQ
         </a>

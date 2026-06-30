@@ -75,7 +75,7 @@ export function MobileNav({
             </span>
             <button
               onClick={() => setIsOpen(false)}
-              className="flex h-8 w-8 items-center justify-center rounded-full text-[var(--reset-gray-accent)] hover:bg-[rgba(0,0,0,0.05)] hover:text-[var(--reset-black)]"
+              className="flex h-8 w-8 items-center justify-center rounded-full text-[var(--reset-gray-accent)] hover:bg-[rgba(241,236,227,0.08)] hover:text-[var(--reset-black)]"
               aria-label="Fermer le menu"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -97,7 +97,7 @@ export function MobileNav({
                   <a
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="flex h-12 items-center rounded-[var(--reset-radius-md)] px-4 text-[15px] font-medium text-[var(--reset-gray-700)] transition-colors hover:bg-[rgba(0,0,0,0.03)] hover:text-[var(--reset-black)]"
+                    className="flex h-12 items-center rounded-[var(--reset-radius-md)] px-4 text-[15px] font-medium text-[var(--reset-gray-700)] transition-colors hover:bg-[rgba(241,236,227,0.06)] hover:text-[var(--reset-black)]"
                   >
                     {item.label}
                   </a>
@@ -111,7 +111,7 @@ export function MobileNav({
             <a
               href={ctaHref}
               onClick={() => setIsOpen(false)}
-              className="flex h-12 w-full items-center justify-center rounded-[var(--reset-radius-md)] bg-[var(--reset-black)] text-[15px] font-medium text-[var(--reset-white)] transition-all hover:bg-[#101010] hover:scale-[1.02] active:scale-[0.98]"
+              className="flex h-12 w-full items-center justify-center rounded-[var(--reset-radius-md)] bg-[var(--reset-black)] text-[15px] font-medium text-[var(--reset-white)] transition-all hover:bg-[#e8e3da] hover:scale-[1.02] active:scale-[0.98]"
             >
               {ctaLabel}
             </a>
