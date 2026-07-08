@@ -1,5 +1,11 @@
 # RESET App Landing Page
-getresetapp.com, www.getresetapp.com {
+# Redirect root domain to www
+getresetapp.com {
+    redir https://www.getresetapp.com{uri} permanent
+}
+
+# Main site
+www.getresetapp.com {
     reverse_proxy app:3000
 }
 
