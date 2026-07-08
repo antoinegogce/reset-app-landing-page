@@ -1,16 +1,13 @@
 #!/bin/sh
 set -e
 
-# SQLite database directory setup (ensure directory exists if volume didn't mount it or for initial permissions)
+# Ensure data directory exists
 mkdir -p /app/data
 
-# Run migrations or db push on startup
-echo "Running database migrations..."
-if [ -d "/app/prisma/migrations" ]; then
-  npx prisma migrate deploy --schema=/app/prisma/schema.prisma
-else
-  echo "No migrations folder found. Running prisma db push..."
-  npx prisma db push --schema=/app/prisma/schema.prisma --accept-data-loss
+# Copy initial database if it doesn't exist yet (first run)
+if [ ! -f /app/data/db.sqlite ]; then
+  echo "Initializing database..."
+  cp /app/public/init-db.sqlite /app/data/db.sqlite 2>/dev/null || true
 fi
 
 # Start the node server

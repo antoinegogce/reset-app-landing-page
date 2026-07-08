@@ -1,10 +1,9 @@
-# Base domain configuration
-# Replace yourdomain.com with your actual domain
-yourdomain.com {
+# RESET App Landing Page
+getresetapp.com, www.getresetapp.com {
     reverse_proxy app:3000
 }
 
-# Optional Uptime Kuma configuration (uncomment if Uptime Kuma service is enabled)
-# status.yourdomain.com {
+# Optional Uptime Kuma (uncomment to enable)
+# status.getresetapp.com {
 #     reverse_proxy uptime-kuma:3001
 # }

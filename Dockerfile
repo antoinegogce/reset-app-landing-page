@@ -26,6 +26,11 @@ ENV NODE_ENV production
 # Generate Prisma Client
 RUN npx prisma generate --schema=./prisma/schema.prisma
 
+# Initialize SQLite database during build (stash in public/ to survive COPY)
+ENV DATABASE_URL="file:/workspace/prisma/init-db.sqlite"
+RUN npx prisma db push --schema=./prisma/schema.prisma --accept-data-loss && \
+    cp /workspace/prisma/init-db.sqlite ./public/init-db.sqlite
+
 # Build the project
 RUN npm run build
 
