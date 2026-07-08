@@ -50,11 +50,10 @@ export async function POST(req: Request) {
       );
     }
 
-    // Add email to Resend Audience
+    // Add email to Resend audience
     const resend = new Resend(process.env.RESEND_API_KEY);
     const { error } = await resend.contacts.create({
       email: body.email,
-      audienceId: process.env.RESEND_AUDIENCE_ID!,
     });
 
     if (error) {
