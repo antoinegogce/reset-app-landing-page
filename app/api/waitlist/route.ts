@@ -105,6 +105,10 @@ export async function POST(req: Request) {
       subject,
       text,
       html,
+      headers: {
+        "List-Unsubscribe": `<mailto:${process.env.RESEND_REPLY_TO ?? "appreset@proton.me"}?subject=unsubscribe>`,
+        "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+      },
     });
 
     if (emailError) {
