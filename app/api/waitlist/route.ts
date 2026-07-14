@@ -21,6 +21,15 @@ const ratelimit = new Ratelimit({
 
 export async function POST(req: Request) {
   try {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      console.error("Waitlist error: RESEND_API_KEY is not configured");
+      return NextResponse.json(
+        { ok: false, error: "Impossible d'enregistrer l'email." },
+        { status: 500 },
+      );
+    }
+
     // Rate limiting by IP
     const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() 
       ?? req.headers.get("x-real-ip") 
@@ -50,8 +59,7 @@ export async function POST(req: Request) {
       );
     }
 
-    // Add email to Resend audience
-    const resend = new Resend(process.env.RESEND_API_KEY);
+    const resend = new Resend(apiKey);
     const { error } = await resend.contacts.create({
       email: body.email,
     });

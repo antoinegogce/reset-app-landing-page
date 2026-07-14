@@ -713,7 +713,7 @@ function WaitlistForm() {
         </button>
         <a
           href="#faq"
-          className="flex h-11 shrink-0 items-center justify-center rounded-[var(--reset-radius-md)] border border-[var(--reset-gray-100)] px-4 text-[14px] font-medium text-[var(--reset-gray-accent)] hover:bg-[rgba(241,236,227,0.06)] hover:text-[var(--reset-black)]"
+          className="flex h-11 flex-1 items-center justify-center rounded-[var(--reset-radius-md)] border border-[var(--reset-gray-100)] text-[14px] font-medium text-[var(--reset-gray-accent)] hover:bg-[rgba(241,236,227,0.06)] hover:text-[var(--reset-black)]"
         >
           Lire la FAQ
         </a>

@@ -5,9 +5,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 Create a `.env.local` file with the following variables:
 
 ```bash
-# Resend (email service)
+# Resend (waitlist contacts)
 RESEND_API_KEY=re_xxxxx
-RESEND_AUDIENCE_ID=xxxxx
 
 # Upstash Redis (rate limiting)
 UPSTASH_REDIS_REST_URL=https://xxxxx.upstash.io
@@ -50,7 +49,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 1. Go to [vercel.com](https://vercel.com) and import your GitHub repository
 2. Add the environment variables in the Vercel dashboard (Settings → Environment Variables):
    - `RESEND_API_KEY`
-   - `RESEND_AUDIENCE_ID`
    - `UPSTASH_REDIS_REST_URL`
    - `UPSTASH_REDIS_REST_TOKEN`
 3. Deploy!
