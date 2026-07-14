@@ -5,7 +5,10 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 Create a `.env.local` file with the following variables:
 
 ```bash
-# Database (SQLite, persisted in ./data for Docker)
+# Database (SQLite)
+# - Local dev: file:./data/db.sqlite
+# - Docker production: overridden to file:/app/data/db.sqlite (absolute path)
+#   This ensures the DB is persisted via the volume mount in docker-compose.
 DATABASE_URL=file:./data/db.sqlite
 
 # Resend (waitlist contacts + confirmation email)
