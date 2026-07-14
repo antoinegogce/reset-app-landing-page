@@ -24,7 +24,7 @@ if [ -f /app/node_modules/prisma/package.json ]; then
     --skip-generate \
     --accept-data-loss
   # Fix ownership so nextjs can write to the database
-  chown nextjs:nodejs /app/data/db.sqlite
+  chown nextjs:nodejs /app/data /app/data/db.sqlite
 fi
 
 # Start the node server (drop to non-root nextjs user for the actual process)
