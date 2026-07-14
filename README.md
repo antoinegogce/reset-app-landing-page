@@ -5,8 +5,13 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 Create a `.env.local` file with the following variables:
 
 ```bash
-# Resend (waitlist contacts)
+# Database (SQLite, persisted in ./data for Docker)
+DATABASE_URL=file:./data/db.sqlite
+
+# Resend (waitlist contacts + confirmation email)
 RESEND_API_KEY=re_xxxxx
+RESEND_FROM_EMAIL="RESET <contact@reset.app>"
+RESEND_REPLY_TO=contact@reset.app
 
 # Upstash Redis (rate limiting)
 UPSTASH_REDIS_REST_URL=https://xxxxx.upstash.io
@@ -14,6 +19,8 @@ UPSTASH_REDIS_REST_TOKEN=xxxxx
 ```
 
 You can get Upstash credentials for free at [console.upstash.com](https://console.upstash.com/).
+
+`RESEND_FROM_EMAIL` must use a domain verified in the [Resend dashboard](https://resend.com/domains). Until your domain is verified, you can test with `RESET <onboarding@resend.dev>` (emails only go to the address on your Resend account).
 
 ## Getting Started
 
@@ -48,7 +55,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 1. Go to [vercel.com](https://vercel.com) and import your GitHub repository
 2. Add the environment variables in the Vercel dashboard (Settings → Environment Variables):
+   - `DATABASE_URL`
    - `RESEND_API_KEY`
+   - `RESEND_FROM_EMAIL`
    - `UPSTASH_REDIS_REST_URL`
    - `UPSTASH_REDIS_REST_TOKEN`
 3. Deploy!
