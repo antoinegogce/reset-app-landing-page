@@ -709,7 +709,7 @@ function WaitlistForm() {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="h-11 flex-1 rounded-[var(--reset-radius-md)] bg-[var(--reset-black)] text-[14px] font-medium text-[var(--reset-white)] transition-colors hover:bg-[#e8e3da] disabled:opacity-60"
+          className="h-11 flex-1 rounded-[var(--reset-radius-md)] bg-[var(--reset-black)] text-[14px] font-medium text-[var(--reset-white)] cursor-pointer transition-colors hover:bg-[#e8e3da] disabled:opacity-60"
         >
           {status === "loading" ? "Envoi…" : "Rejoindre"}
         </button>
