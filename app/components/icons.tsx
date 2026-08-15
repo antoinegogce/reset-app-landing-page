@@ -29,8 +29,8 @@ export function IconLock(props: IconProps) {
   );
 }
 
-export function IconNfc(props: IconProps) {
-  const { title = "NFC", ...rest } = props;
+export function IconClock(props: IconProps) {
+  const { title = "Clock", ...rest } = props;
   return (
     <svg
       viewBox="0 0 24 24"
@@ -45,10 +45,33 @@ export function IconNfc(props: IconProps) {
       {...rest}
     >
       <Title title={title} />
-      <path d="M8 7.2v9.6" />
-      <path d="M12 6.3c2.6 1.2 4.4 3.8 4.4 6.7S14.6 18.5 12 19.7" />
-      <path d="M10.8 8.3c1.7.8 2.9 2.5 2.9 4.7s-1.2 3.9-2.9 4.7" />
-      <path d="M6.3 9.4c-1 .9-1.7 2.2-1.7 3.6s.6 2.7 1.7 3.6" />
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M12 7.5V12l3 2" />
+    </svg>
+  );
+}
+
+export function IconTrophy(props: IconProps) {
+  const { title = "Trophy", ...rest } = props;
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden={title ? undefined : true}
+      {...rest}
+    >
+      <Title title={title} />
+      <path d="M8.5 4.5h7v3.2c0 2.7-1.6 4.6-3.5 4.6S8.5 10.4 8.5 7.7V4.5Z" />
+      <path d="M8.5 5.5H6a2.8 2.8 0 0 0 3 3.6" />
+      <path d="M15.5 5.5H18a2.8 2.8 0 0 1-3 3.6" />
+      <path d="M12 12.3V15" />
+      <path d="M9.5 15h5l.9 4.5H8.6L9.5 15Z" />
     </svg>
   );
 }
@@ -75,33 +98,6 @@ export function IconChart(props: IconProps) {
       <path d="M11 16.5V8.8" />
       <path d="M14.5 16.5v-3.8" />
       <path d="M18 16.5V6.8" />
-    </svg>
-  );
-}
-
-export function IconQr(props: IconProps) {
-  const { title = "QR", ...rest } = props;
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width="24"
-      height="24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden={title ? undefined : true}
-      {...rest}
-    >
-      <Title title={title} />
-      <path d="M4.8 4.8h5.2v5.2H4.8z" />
-      <path d="M14 4.8h5.2v5.2H14z" />
-      <path d="M4.8 14h5.2v5.2H4.8z" />
-      <path d="M14 14h2.6v2.6H14z" />
-      <path d="M16.6 16.6h2.6v2.6h-2.6z" />
-      <path d="M14 19.2h2.6" />
-      <path d="M19.2 14v2.6" />
     </svg>
   );
 }

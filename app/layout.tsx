@@ -20,7 +20,7 @@ const spaceMono = Space_Mono({
 export const metadata: Metadata = {
   title: "RESET — Reprends le contrôle",
   description:
-    "RESET t'aide à reprendre le contrôle avec Smart Lock (blocage total, quota, plages horaires), déverrouillage NFC en sessions, statistiques, et motivation via QR/duels.",
+    "RESET t'aide à reprendre le contrôle : Smart Lock (blocage total, quota, plages horaires), pause volontaire pour déverrouiller, et gamification (XP, streaks, défis entre amis) pour tenir tes bonnes habitudes.",
 };
 
 export default function RootLayout({

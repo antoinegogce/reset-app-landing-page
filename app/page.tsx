@@ -8,7 +8,7 @@ import { Container } from "./components/Container";
 import { Divider } from "./components/Divider";
 import { MobileNav } from "./components/MobileNav";
 import { SectionHeading } from "./components/SectionHeading";
-import { IconChart, IconGooglePlay, IconLock, IconLogo, IconNfc, IconQr, IconUsers } from "./components/icons";
+import { IconChart, IconClock, IconGooglePlay, IconLock, IconLogo, IconTrophy, IconUsers } from "./components/icons";
 
 export default function Home() {
   // TODO: Décommenter quand l'app sera disponible sur le Play Store
@@ -29,7 +29,7 @@ function Landing({
       { href: "#produit", label: "Produit" },
       { href: "#comment", label: "Comment ça marche" },
       { href: "#fonctionnalites", label: "Fonctionnalités" },
-      { href: "#social", label: "Social" },
+      { href: "#defis", label: "Défis" },
       { href: "#confiance", label: "Confiance" },
       { href: "#faq", label: "FAQ" },
     ],
@@ -88,7 +88,7 @@ function Landing({
                 <div className="flex items-center gap-3 animate-fade-in-up">
                   <Badge>Android</Badge>
                   <Badge>Smart Lock</Badge>
-                  <Badge>NFC</Badge>
+                  <Badge>XP & Défis</Badge>
                 </div>
                 <h1 className="mt-5 text-[44px] font-[300] leading-[1.05] tracking-[-0.03em] text-[var(--reset-black)] sm:text-[58px] animate-fade-in-up delay-100">
                   Reprends le contrôle.
@@ -97,10 +97,10 @@ function Landing({
                   <span className="text-[var(--reset-black)]">
                     RESET bloque les apps qui te grignotent du temps
                   </span>{" "}
-                  — et te laisse déverrouiller temporairement, volontairement, via NFC.
+                  — et transforme tes bonnes habitudes en jeu : XP, défis, progression.
                   <br />
                   <span className="text-[var(--reset-gray-accent)]">
-                    Moins de friction mentale. Plus de choix.
+                    Moins de friction mentale. Plus de choix. Et une progression qui donne envie.
                   </span>
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center animate-fade-in-up delay-300">
@@ -122,7 +122,7 @@ function Landing({
                   <span>Disponible uniquement sur <span className="text-[var(--reset-black)] font-medium">Android</span></span>
                 </div>
                 <p className="mt-3 text-[13px] leading-6 text-[var(--reset-gray-accent)]">
-                  Permissions expliquées en toute transparence (accès à l&apos;usage, overlay, NFC).
+                  Permissions expliquées en toute transparence (accès à l&apos;usage, overlay).
                 </p>
               </div>
 
@@ -143,7 +143,7 @@ function Landing({
             <SectionHeading
               eyebrow="PRODUIT"
               title="Un cadre clair. Une sortie volontaire."
-              description="Smart Lock pour bloquer, NFC pour déverrouiller en sessions, stats pour voir, et un social minimal pour tenir le cap."
+              description="Smart Lock pour bloquer, une pause volontaire pour déverrouiller, des stats pour voir, et de la gamification pour tenir le cap."
             />
             <div className="mt-10 grid gap-4 md:grid-cols-2">
               <Card className="p-7">
@@ -161,13 +161,13 @@ function Landing({
               </Card>
               <Card className="p-7">
                 <div className="flex items-start gap-4">
-                  <IconNfc className="mt-0.5 text-[var(--reset-black)]" />
+                  <IconClock className="mt-0.5 text-[var(--reset-black)]" />
                   <div>
                     <div className="text-[16px] font-medium text-[var(--reset-black)]">
-                      Déverrouillage temporaire via NFC
+                      Pause volontaire
                     </div>
                     <p className="mt-2 text-[14px] leading-7 text-[var(--reset-gray-700)]">
-                      Une exception devient une session: volontaire, limitée, tracée.
+                      Pour débloquer, tu attends quelques secondes — et tu peux renoncer à tout moment.
                     </p>
                   </div>
                 </div>
@@ -187,13 +187,13 @@ function Landing({
               </Card>
               <Card className="p-7">
                 <div className="flex items-start gap-4">
-                  <IconUsers className="mt-0.5 text-[var(--reset-black)]" />
+                  <IconTrophy className="mt-0.5 text-[var(--reset-black)]" />
                   <div>
                     <div className="text-[16px] font-medium text-[var(--reset-black)]">
-                      Motivation sociale, sans bruit
+                      Gamification douce
                     </div>
                     <p className="mt-2 text-[14px] leading-7 text-[var(--reset-gray-700)]">
-                      Profil @resetTag, QR, contacts, demandes d&apos;amis, duels.
+                      XP, niveaux, streaks et défis entre amis pour tenir tes bonnes habitudes.
                     </p>
                   </div>
                 </div>
@@ -219,12 +219,12 @@ function Landing({
               <Step
                 n="02"
                 title="Déverrouille si tu le décides"
-                text="Quand une app est bloquée, l'écran « Application bloquée » apparaît. Pour une exception, démarre une session de déverrouillage via scan NFC."
+                text="Quand une app est bloquée, un écran apparaît avec un compte à rebours. Attends quelques secondes — ou annule et retourne à tes affaires."
               />
               <Step
                 n="03"
-                title="Observe et tiens le cap"
-                text="Suis tes sessions, tes minutes déverrouillées et les tendances 7/30 jours. Besoin d'un cadre? QR, contacts et duels."
+                title="Progresse et tiens le cap"
+                text="Gagne de l'XP, enchaîne les streaks, et lance des défis avec tes proches. Suis tes sessions et tes tendances 7/30 jours."
               />
             </div>
           </Container>
@@ -245,9 +245,9 @@ function Landing({
                 icon={<IconLock />}
               />
               <Feature
-                title="Déverrouillage NFC (sessions)"
-                detail="Une exception devient une session temporaire, volontaire, puis retour au cadre."
-                icon={<IconNfc />}
+                title="Pause volontaire"
+                detail="Un compte à rebours avant de débloquer, et un bouton pour renoncer à tout moment."
+                icon={<IconClock />}
               />
               <Feature
                 title="Écran « Application bloquée » apaisant"
@@ -265,63 +265,64 @@ function Landing({
                 icon={<IconChart />}
               />
               <Feature
-                title="Social = motivation, pas distraction"
-                detail="Profil @resetTag, QR, contacts, demandes d'amis, duels."
-                icon={<IconQr />}
+                title="Gamification = progrès, pas pression"
+                detail="XP, niveaux, streaks, défis entre amis et récompenses."
+                icon={<IconTrophy />}
               />
             </div>
           </Container>
         </section>
 
-        {/* SOCIAL */}
-        <section id="social" className="pt-20 sm:pt-24">
+        {/* DÉFIS / GAMIFICATION */}
+        <section id="defis" className="pt-20 sm:pt-24">
           <Container>
             <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
               <div className="lg:col-span-5">
                 <SectionHeading
-                  eyebrow="SOCIAL"
-                  title="Rester aligné, à plusieurs."
-                  description="Pas un réseau social. Un engagement partagé — simple, discret, utile."
+                  eyebrow="GAMIFICATION"
+                  title="Transforme tes habitudes en jeu."
+                  description="XP, niveaux, streaks et défis : une progression douce, partagée avec ceux qui te motivent."
                 />
                 <div className="mt-7 flex flex-wrap gap-2">
-                  <Badge>QR</Badge>
-                  <Badge>Contacts</Badge>
-                  <Badge>Demandes d&apos;amis</Badge>
-                  <Badge>Duels</Badge>
+                  <Badge>XP</Badge>
+                  <Badge>Niveaux</Badge>
+                  <Badge>Streaks</Badge>
+                  <Badge>Défis</Badge>
                 </div>
                 <p className="mt-7 text-[16px] leading-7 text-[var(--reset-gray-700)]">
-                  Crée ton <span className="text-[var(--reset-black)]">@resetTag</span>{" "}
-                  pour rendre ton intention simple à partager. Ajoute des contacts, accepte des
-                  demandes, et lance des duels quand tu veux un cadre léger — sans bruit.
+                  Chaque bonne habitude tenue te rapporte de l&apos;<span className="text-[var(--reset-black)]">XP</span>.
+                  Monte en niveau, enchaîne les streaks, et lance des défis avec tes proches.
+                  Ton profil <span className="text-[var(--reset-black)]">@resetTag</span> et ton QR
+                  rendent ça simple à partager — sans bruit.
                 </p>
               </div>
               <div className="lg:col-span-7">
                 <div className="grid gap-4 md:grid-cols-3">
                   <Card className="p-6">
-                    <IconQr className="text-[var(--reset-black)]" />
+                    <IconTrophy className="text-[var(--reset-black)]" />
                     <div className="mt-4 text-[15px] font-medium text-[var(--reset-black)]">
-                      QR rapide
+                      XP & niveaux
                     </div>
                     <p className="mt-2 text-[13px] leading-6 text-[var(--reset-gray-700)]">
-                      Un scan. Un lien. C&apos;est tout.
+                      Chaque habitude te fait progresser.
+                    </p>
+                  </Card>
+                  <Card className="p-6">
+                    <IconChart className="text-[var(--reset-black)]" />
+                    <div className="mt-4 text-[15px] font-medium text-[var(--reset-black)]">
+                      Streaks
+                    </div>
+                    <p className="mt-2 text-[13px] leading-6 text-[var(--reset-gray-700)]">
+                      Enchaîne les jours, garde la série.
                     </p>
                   </Card>
                   <Card className="p-6">
                     <IconUsers className="text-[var(--reset-black)]" />
                     <div className="mt-4 text-[15px] font-medium text-[var(--reset-black)]">
-                      Contacts & demandes
+                      Défis entre amis
                     </div>
                     <p className="mt-2 text-[13px] leading-6 text-[var(--reset-gray-700)]">
-                      Tu choisis qui te suit, quand.
-                    </p>
-                  </Card>
-                  <Card className="p-6">
-                    <IconLock className="text-[var(--reset-black)]" />
-                    <div className="mt-4 text-[15px] font-medium text-[var(--reset-black)]">
-                      Duels
-                    </div>
-                    <p className="mt-2 text-[13px] leading-6 text-[var(--reset-gray-700)]">
-                      Motivation douce, pas pression.
+                      Lance un défi, comparez vos progrès.
                     </p>
                   </Card>
                 </div>
@@ -348,8 +349,9 @@ function Landing({
                   dans l&apos;app (règles, sessions, stats) servent d&apos;abord à te donner de la clarté.
                 </p>
                 <p className="mt-3 text-[14px] leading-7 text-[var(--reset-gray-700)]">
-                  Les fonctions sociales (profil/contacts/duels) nécessitent certaines informations
-                  pour fonctionner — et elles sont présentées clairement dans l&apos;app.
+                  Les fonctions sociales et de progression (profil, contacts, défis, XP)
+                  nécessitent certaines informations pour fonctionner — et elles sont présentées
+                  clairement dans l&apos;app.
                 </p>
               </Card>
               <Card className="p-7">
@@ -367,15 +369,11 @@ function Landing({
                     <span className="text-[var(--reset-black)]">
                       Afficher par-dessus d&apos;autres apps (overlay)
                     </span>
-                    : afficher &quot;Application bloquée&quot; au bon moment.
-                  </li>
-                  <li>
-                    <span className="text-[var(--reset-black)]">NFC</span>: démarrer une session de
-                    déverrouillage via scan.
+                    : afficher &quot;Application bloquée&quot; et le compte à rebours au bon moment.
                   </li>
                   <li>
                     <span className="text-[var(--reset-black)]">Caméra (QR)</span>: scanner un QR
-                    pour ajouter un contact / lancer un duel (si utilisé).
+                    pour ajouter un contact / lancer un défi (si utilisé).
                   </li>
                 </ul>
               </Card>
@@ -424,11 +422,15 @@ function Landing({
             <div className="mt-10 grid gap-4 lg:grid-cols-2">
               <Faq
                 q="Est-ce que je peux contourner le blocage ?"
-                a="RESET est conçu pour rendre le contournement moins automatique et plus conscient (écran de blocage + déverrouillage en session). L'objectif: te remettre face à un choix, pas te piéger."
+                a="RESET est conçu pour rendre le contournement moins automatique et plus conscient (écran de blocage + pause avant déverrouillage). L'objectif: te remettre face à un choix, pas te piéger."
               />
               <Faq
-                q="Le NFC est-il obligatoire ?"
-                a="Non: le blocage Smart Lock fonctionne sans NFC. Le NFC sert à déverrouiller temporairement via des sessions, de façon volontaire."
+                q="Comment fonctionne le déverrouillage ?"
+                a="Quand une app est bloquée, tu peux demander à la déverrouiller. Un compte à rebours se lance (30 secondes par défaut, réglable par app). À la fin, l'app se débloque — ou tu annules et tu retournes à tes affaires."
+              />
+              <Faq
+                q="Comment gagner de l'XP ?"
+                a="En tenant tes règles : jours respectés, streaks enchaînés, défis gagnés. L'XP te fait monter en niveau et nourrit ta progression."
               />
               <Faq
                 q="Quelles apps puis-je autoriser ?"
@@ -436,15 +438,15 @@ function Landing({
               />
               <Faq
                 q="Quelles données sont stockées ?"
-                a="Les éléments nécessaires au produit: tes règles (apps bloquées/autorisées), tes sessions et tes statistiques. Pour le social, ton profil @resetTag et les éléments liés (contacts/QR) sont utilisés pour permettre ces fonctions."
+                a="Les éléments nécessaires au produit: tes règles (apps bloquées/autorisées), tes sessions, tes statistiques et ta progression (XP, streaks). Pour le social, ton profil @resetTag et les éléments liés (contacts/QR) sont utilisés pour permettre ces fonctions."
               />
               <Faq
                 q="Ça marche sans internet ?"
-                a="Les fonctions de blocage, NFC et stats peuvent fonctionner localement. Les fonctions sociales (contacts/demandes/duels) peuvent nécessiter une connexion selon l'usage."
+                a="Les fonctions de blocage, de pause et de stats peuvent fonctionner localement. Les fonctions sociales et de défis (contacts/demandes/duels) peuvent nécessiter une connexion selon l'usage."
               />
               <Faq 
                 q="Pourquoi Android uniquement ?" 
-                a="RESET utilise des fonctionnalités spécifiques à Android (accès aux statistiques d'usage, overlay, NFC). iOS ne permet pas ce niveau d'intégration système. Aucune version iOS n'est prévue."
+                a="RESET utilise des fonctionnalités spécifiques à Android (accès aux statistiques d'usage, overlay). iOS ne permet pas ce niveau d'intégration système. Aucune version iOS n'est prévue."
               />
             </div>
           </Container>
@@ -561,20 +563,20 @@ function ProductMock() {
 
       <Card className="p-6">
         <div className="flex items-center justify-between">
-          <Badge>Scan NFC</Badge>
-          <IconNfc className="text-[var(--reset-black)]" />
+          <Badge>Pause volontaire</Badge>
+          <IconClock className="text-[var(--reset-black)]" />
         </div>
         <div className="mt-5 rounded-[var(--reset-radius-md)] border border-[var(--reset-gray-100)] bg-[var(--reset-offwhite)] p-4">
-          <div className="text-[14px] font-medium text-[var(--reset-black)]">Session de déverrouillage</div>
+          <div className="text-[14px] font-medium text-[var(--reset-black)]">Déverrouillage dans</div>
           <div className="mt-1 text-[12px] text-[var(--reset-gray-accent)]">
-            10 minutes — volontaire, temporaire
+            30 secondes — réglable
           </div>
           <div className="mt-4 h-2 w-full rounded-full bg-[rgba(241,236,227,0.10)]">
             <div className="h-2 w-[62%] rounded-full bg-[rgba(241,236,227,0.25)]" />
           </div>
         </div>
         <div className="mt-5 text-[12px] text-[var(--reset-gray-accent)]">
-          Un geste physique pour faire une exception.
+          Un bouton « Annuler » pour renoncer à tout moment.
         </div>
       </Card>
 
@@ -585,8 +587,8 @@ function ProductMock() {
         </div>
         <div className="mt-5 grid gap-3 sm:grid-cols-3">
           <Metric label="Sessions" value="12" />
-          <Metric label="Minutes déverrouillées" value="84" />
-          <Metric label="Moyenne" value="7 min" />
+          <Metric label="XP gagné" value="340" />
+          <Metric label="Streak" value="5 j" />
         </div>
         <div className="mt-5 flex items-end justify-between gap-2 rounded-[var(--reset-radius-md)] border border-[var(--reset-gray-100)] bg-[var(--reset-offwhite)] p-4">
           {["30", "44", "26", "52", "38", "60", "40"].map((h, i) => (
