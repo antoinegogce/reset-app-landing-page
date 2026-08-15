@@ -40,12 +40,21 @@ export async function POST(req: Request) {
       ?? req.headers.get("x-real-ip")
       ?? "anonymous";
 
-    const { success, remaining } = await ratelimit.limit(ip);
+    try {
+      const { success, remaining } = await ratelimit.limit(ip);
 
-    if (!success) {
-      return NextResponse.json(
-        { ok: false, error: "Trop de requêtes. Réessaie dans une minute." },
-        { status: 429, headers: { "X-RateLimit-Remaining": String(remaining) } },
+      if (!success) {
+        return NextResponse.json(
+          { ok: false, error: "Trop de requêtes. Réessaie dans une minute." },
+          { status: 429, headers: { "X-RateLimit-Remaining": String(remaining) } },
+        );
+      }
+    } catch (rateLimitError) {
+      // Fail-open : si Redis/Upstash est indisponible, on n'empêche pas
+      // l'inscription. Le honeypot + la validation email restent les garde-fous.
+      console.error(
+        "Waitlist warning: rate limiter indisponible, fail-open",
+        rateLimitError,
       );
     }
 
