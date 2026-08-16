@@ -38,6 +38,26 @@ function Landing({
 
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            name: "RESET",
+            applicationCategory: "UtilitiesApplication",
+            operatingSystem: "Android",
+            description:
+              "RESET bloque les apps qui te grignotent du temps et transforme tes bonnes habitudes en jeu : Smart Lock, pause volontaire, XP, streaks et défis entre amis.",
+            url: "https://www.getresetapp.com",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "EUR",
+            },
+          }),
+        }}
+      />
       <header className="sticky top-0 z-40 border-b border-[rgba(241,236,227,0.06)] bg-[rgba(35,46,60,0.85)] backdrop-blur">
         <Container className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-6">
