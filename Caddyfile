@@ -9,6 +9,11 @@ www.getresetapp.com {
     reverse_proxy app:3000
 }
 
+# RESET API (backend self-host)
+api.getresetapp.com {
+    reverse_proxy reset-api:3001
+}
+
 # Optional Uptime Kuma (uncomment to enable)
 # status.getresetapp.com {
 #     reverse_proxy uptime-kuma:3001
