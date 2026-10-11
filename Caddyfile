@@ -18,3 +18,8 @@ api.getresetapp.com {
 # status.getresetapp.com {
 #     reverse_proxy uptime-kuma:3001
 # }
+
+# Project 2030 counter (calliclesprojects.com)
+calliclesprojects.com, www.calliclesprojects.com {
+    reverse_proxy project2030-counter:80
+}
